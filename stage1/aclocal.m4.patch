@@ -1,0 +1,13 @@
+--- aclocal.m4.orig	2017-02-13 10:13:37.667003000 -0500
++++ aclocal.m4	2017-02-13 10:14:19.368446000 -0500
+@@ -582,8 +582,8 @@
+         # On arm/linux and arm/android, tell gcc to generate Arm
+         # instructions (ie not Thumb) and to link using the gold linker.
+         # Forcing LD to be ld.gold is done in FIND_LD m4 macro.
+-        $2="$$2 -marm"
+-        $3="$$3 -fuse-ld=gold -Wl,-z,noexecstack"
++        $2="$$2 -mcpu=cortex-a53 -mfpu=neon-fp-armv8 -mfloat-abi=hard"
++        $3="$$3 -fuse-ld=gold -Wl,-z,noexecstack -pthread"
+         $4="$$4 -z noexecstack"
+         ;;
+ 
